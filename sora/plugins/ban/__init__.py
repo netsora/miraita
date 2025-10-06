@@ -71,7 +71,9 @@ async def add(
         else:
             minutes_result = 0
         hours_result = hours.result
-        logger.info(f"封禁目标：{uid}({user_name})，时长：{hours_result}小时{minutes_result}分钟")
+        logger.info(
+            f"封禁目标：{uid}({user_name})，时长：{hours_result}小时{minutes_result}分钟"
+        )
         await Ban.ban(uid, duration=convert_to_seconds(hours_result, minutes_result))
         await Text(
             f"已成功封禁用户：{uid}({user_name})，时长：{hours_result}小时{minutes_result}分钟"
@@ -107,7 +109,9 @@ async def unban(
         else:
             minutes_result = 0
         hours_result = hours.result
-        logger.info(f"封禁目标：{uid}({user_name})，时长：{hours_result}小时{minutes_result}分钟")
+        logger.info(
+            f"封禁目标：{uid}({user_name})，时长：{hours_result}小时{minutes_result}分钟"
+        )
         await Ban.unban(uid)
         await Text(
             f"已成功封禁用户：{uid}({user_name})，时长：{hours_result}小时{minutes_result}分钟"

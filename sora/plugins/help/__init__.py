@@ -110,7 +110,8 @@ async def statis_cmd_most(arp: Arparma):
     sort = sorted(table.items(), key=lambda x: x[1], reverse=True)
     sort = sort[: arp.query[int]("count")]
     await statis_cmd.finish(
-        "以下按照命令使用频率排序\n" + "\n".join(f"[{k}] {v[0]}" for k, v in enumerate(sort))
+        "以下按照命令使用频率排序\n"
+        + "\n".join(f"[{k}] {v[0]}" for k, v in enumerate(sort))
     )
 
 
@@ -128,5 +129,6 @@ async def statis_cmd_least(arp: Arparma):
     sort = sorted(table.items(), key=lambda x: x[1], reverse=False)
     sort = sort[: arp.query[int]("count")]
     await statis_cmd.finish(
-        "以下按照命令使用频率排序\n" + "\n".join(f"[{k}] {v[0]}" for k, v in enumerate(sort))
+        "以下按照命令使用频率排序\n"
+        + "\n".join(f"[{k}] {v[0]}" for k, v in enumerate(sort))
     )

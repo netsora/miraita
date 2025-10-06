@@ -3,6 +3,7 @@
 用来在处理事件前先判断用户是否存在
 如果不存在则自动为其注册账号
 """
+
 import inspect
 
 from nonebot import require

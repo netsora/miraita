@@ -99,9 +99,9 @@ async def _():
     latest_version, update_time = await CheckUpdate.show_latest_version()
     if latest_version and update_time:
         if latest_version != __version__:
-            await Text(f"新版本已发布, 请更新\n最新版本: {latest_version} 更新时间: {update_time}").send(
-                at_sender=True
-            )
+            await Text(
+                f"新版本已发布, 请更新\n最新版本: {latest_version} 更新时间: {update_time}"
+            ).send(at_sender=True)
         else:
             await Text("当前已是最新版本").send(at_sender=True)
     await check_update_cmd.finish()
@@ -128,7 +128,9 @@ async def _(matcher: AlconnaMatcher, cmd: Match[tuple[str, ...]]):
 
 @run_cmd.got_path(
     "cmd",
-    prompt=UniMessage.template("{:At(user, $event.get_user_id())} 请输入你要运行的命令"),
+    prompt=UniMessage.template(
+        "{:At(user, $event.get_user_id())} 请输入你要运行的命令"
+    ),
     parameterless=[HandleCancellation("已取消")],
 )
 async def _(cmd: str):

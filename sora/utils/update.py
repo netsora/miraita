@@ -38,7 +38,9 @@ def update():
                 pyproject_new_content = pyproject_raw_content.replace(
                     raw_plugins_load.group(), "plugins = []"
                 )
-                logger.info("更新", f"检测到已安装插件：{raw_plugins_load.group()}，暂时重置")
+                logger.info(
+                    "更新", f"检测到已安装插件：{raw_plugins_load.group()}，暂时重置"
+                )
             else:
                 pyproject_new_content = pyproject_raw_content
             pyproject_file.write_text(pyproject_new_content, encoding="utf-8")
@@ -64,7 +66,9 @@ def update():
                         "plugins = []", raw_plugins_load.group()
                     )
                     pyproject_file.write_text(pyproject_new_content, encoding="utf-8")
-                    logger.info("更新", f"更新结束，还原插件：{raw_plugins_load.group()}")
+                    logger.info(
+                        "更新", f"更新结束，还原插件：{raw_plugins_load.group()}"
+                    )
             return msg
         else:
             msg = f"更新失败，错误信息：{e.stderr}，请尝试手动进行更新"

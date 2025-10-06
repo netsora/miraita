@@ -50,7 +50,10 @@ bind = on_alconna(
         Args["input_token?", str],
         Option("-t|--token", Args["token?", str], help_text="生成token"),
         Option(
-            "-l|--list", Args["target?", At], alias={"列表", "信息"}, help_text="查询绑定信息"
+            "-l|--list",
+            Args["target?", At],
+            alias={"列表", "信息"},
+            help_text="查询绑定信息",
         ),
         Option("-r|--rebind", alias={"取消"}, help_text="取消绑定"),
         meta=CommandMeta(

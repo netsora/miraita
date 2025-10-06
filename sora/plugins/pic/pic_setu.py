@@ -20,7 +20,9 @@ setu = on_alconna(
     Alconna(
         "setu",
         Args["count", int, 1],
-        Option("-r|--r18", action=store_true, default=False, help_text="是否开启 R18 模式"),
+        Option(
+            "-r|--r18", action=store_true, default=False, help_text="是否开启 R18 模式"
+        ),
         Option("-t|--tags", Args["tags", MultiVar(str, "*")], help_text="指定标签"),
         meta=CommandMeta(
             description="谁不喜欢看色图呢？",

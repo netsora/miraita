@@ -61,7 +61,9 @@ async def _(user: UserInfo):
     if last_sign is not None and abs((date.today() - last_sign.date()).days) == 1:
         continuous_days += 1
         extra_coin = int(continuous_days * 1.5)
-        msg = f"你当前连续签到 {str(continuous_days)} 天，额外奖励 {extra_coin} 枚硬币。"
+        msg = (
+            f"你当前连续签到 {str(continuous_days)} 天，额外奖励 {extra_coin} 枚硬币。"
+        )
         await User.reward(uid, reward={"coin": extra_coin})
         await Sign.filter(uid=uid).update(continuous_days=F("continuous_days") + 1)
     else:

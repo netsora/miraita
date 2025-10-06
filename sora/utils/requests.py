@@ -169,7 +169,9 @@ class AsyncHttpx:
                         ).content
                         async with aiofiles.open(path, "wb") as wf:
                             await wf.write(content)
-                            logger.success("请求", f"下载 {url} 成功！Path：{path.absolute()}")
+                            logger.success(
+                                "请求", f"下载 {url} 成功！Path：{path.absolute()}"
+                            )
                         return True
                     except (TimeoutError, ConnectTimeout):
                         pass
@@ -221,7 +223,9 @@ class AsyncHttpx:
             else:
                 logger.error("请求", f"下载 {url} 下载超时！Path：{path.absolute()}")
         except Exception as e:
-            logger.error("请求", f"下载 {url} 未知错误 {type(e)}：{e} | Path：{path.absolute()}")
+            logger.error(
+                "请求", f"下载 {url} 未知错误 {type(e)}：{e} | Path：{path.absolute()}"
+            )
         return False
 
     @classmethod

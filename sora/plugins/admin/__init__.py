@@ -131,7 +131,9 @@ async def add(
     if admin_target.available:
         if await user.filter(bind__uid=str(admin_target.result)).exists():
             await user.filter(uid=admin_target.result).update(permission="ADMIN")
-            await Text(f"已成功增加 Bot管理员：{admin_target.result}").send(at_sender=True)
+            await Text(f"已成功增加 Bot管理员：{admin_target.result}").send(
+                at_sender=True
+            )
 
         elif admin_target.result == 0:
             ...
@@ -142,7 +144,9 @@ async def add(
     if helper_target.available:
         if await user.filter(bind__uid=str(admin_target.result)).exists():
             await user.filter(uid=helper_target.result).update(permission="HELPER")
-            await Text(f"已成功增加 Bot协助者：{helper_target.result}").send(at_sender=True)
+            await Text(f"已成功增加 Bot协助者：{helper_target.result}").send(
+                at_sender=True
+            )
 
         elif helper_target.result == 0:
             ...
@@ -166,7 +170,9 @@ async def remove(
     if admin_target.available:
         if await user.filter(bind__uid=str(admin_target.result)).exists():
             await user.filter(uid=admin_target.result).update(permission="NORMAL")
-            await Text(f"已取消 {admin_target.result} 的 Bot管理员 身份").send(at_sender=True)
+            await Text(f"已取消 {admin_target.result} 的 Bot管理员 身份").send(
+                at_sender=True
+            )
 
         elif admin_target.result == 0:
             ...
@@ -177,7 +183,9 @@ async def remove(
     if helper_target.available:
         if await user.filter(bind__uid=str(admin_target.result)).exists():
             await user.filter(uid=helper_target.result).update(permission="NORMAL")
-            await Text(f"已取消 {helper_target.result} 的 Bot协助者 身份").send(at_sender=True)
+            await Text(f"已取消 {helper_target.result} 的 Bot协助者 身份").send(
+                at_sender=True
+            )
 
         elif helper_target.result == 0:
             ...
